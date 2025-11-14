@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="page-title">Products</h2>
+
+<!-- CATEGORY FILTER -->
+<div class="category-bar">
+    <a href="{% url 'home' %}" class="category-btn {% if not selected_category %}active{% endif %}">
+        All
+    </a>
+
+    {% for cat in categories %}
+        <a href="?category={{ cat.id }}" 
+           class="category-btn {% if selected_category.id == cat.id %}active{% endif %}">
+           {{ cat.name }}
+        </a>
+    {% endfor %}
+</div>
+
+<!-- PRODUCT GRID -->
+<div class="product-grid">
+    {% for p in products %}
+    <div class="product-card">
+
+        <img src="{{ p.image.url }}" alt="{{ p.name }}" class="product-img">
+
+        <h3>{{ p.name }}</h3>
+        <p class="price">₹{{ p.price }}</p>
+
+        <div class="btn-group">
+            <a class="btn" href="{% url 'product_detail' p.id %}">View</a>
+            <a class="btn cart" href="{% url 'add_to_cart' p.id %}">Add to Cart</a>
+            <a class="btn wishlist" href="{% url 'add_to_wishlist' p.id %}">❤ Wishlist</a>
+        </div>
+    </div>
+    {% empty %}
+        <p>No products found in this category.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

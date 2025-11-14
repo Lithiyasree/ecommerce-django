@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="page-title">Wishlist</h2>
+
+<div class="product-grid">
+    {% for w in wishlist_items %}
+    <div class="product-card">
+        <img src="{{ w.product.image.url }}" class="product-img">
+
+        <h3>{{ w.product.name }}</h3>
+        <p class="price">₹{{ w.product.price }}</p>
+
+        <div class="btn-group">
+            <a class="btn cart" href="{% url 'add_to_cart' w.product.id %}">
+                Move to Cart
+            </a>
+            <a class="btn remove" href="{% url 'remove_from_wishlist' w.id %}">
+                Remove
+            </a>
+        </div>
+    </div>
+    {% empty %}
+        <p>No items in wishlist.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

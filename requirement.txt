@@ -1,0 +1,77 @@
+STEPS
+
+1️⃣ Create the virtual environment: python -m venv venv
+
+2️⃣ Activate the environment: venv\Scripts\activate
+
+3️⃣ Install Django + MySQL client inside venv:
+            pip install django
+            django-admin --version
+            pip install mysqlclient
+
+4️⃣ Start the project:
+            django-admin startproject ecommerce_project
+
+ 
+✅ STEP 5 — PROJECT SETTINGS.PY
+    
+    # I HAVE CHANGED (ADDED APP IN INSTALLED APPS, ADDED STATICFILES_DIRS, MEDIA_URL AND MEDIA_ROOT, DATABASE SETTINGS)
+    📌 Ensure These Settings in settings.py
+
+       
+        1)Add your app
+        INSTALLED_APPS = [
+            ...
+            'ecommerce_app',
+        ]
+
+        2)Static files
+        STATIC_URL = '/static/'
+        STATICFILES_DIRS = [
+            BASE_DIR / "ecommerce_app/static"
+        ]
+
+        3)Media files
+        MEDIA_URL = '/media/'
+        MEDIA_ROOT = BASE_DIR / 'media'
+
+        4)MySQL Connect (if used)
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': 'ecommerce_db',
+                'USER': 'root',
+                'PASSWORD': 'Lithiyasree12@',
+                'HOST': 'localhost',
+                'PORT': '3306',
+            }
+        }
+
+✅ STEP 6 — Create App and Write code
+
+        python manage.py startapp ecommerce_app
+
+        Write code in --> model.py, view.py, template/html, static/css/js, url.py ( project, app ),  admin.py ( project )
+
+
+✅ STEP 7 — Run migrations
+        Before create database in mysql (if using mysql like: "CREATE DATABASE ecommerce_db;" )
+
+        python manage.py makemigrations
+        python manage.py migrate
+
+
+✅ STEP 8 — Create Superuser
+
+        python manage.py createsuperuser
+
+        Enter:
+            Username
+            Email
+            Password
+
+✅ STEP 9 - Run Server
+        python manage.py runserver
+
+
+

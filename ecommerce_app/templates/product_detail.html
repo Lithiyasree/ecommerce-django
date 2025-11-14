@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="detail-container">
+
+    <img src="{{ product.image.url }}" class="detail-img">
+
+    <div class="detail-info">
+        <h2>{{ product.name }}</h2>
+        <p class="detail-price">₹{{ product.price }}</p>
+        <p class="detail-desc">{{ product.description }}</p>
+
+        <a class="btn cart" href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+        <a class="btn wishlist" href="{% url 'add_to_wishlist' product.id %}">❤ Add to Wishlist</a>
+    </div>
+
+</div>
+
+{% endblock %}
+
