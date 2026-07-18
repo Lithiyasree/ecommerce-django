@@ -158,7 +158,7 @@ def view_cart(request):
 
     context.update(_counts_for_user(request))
 
-    return render(request, 'cart.html', context)
+    return render(request,'cart.html', context)
 
 
 @login_required(login_url='login')
