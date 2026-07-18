@@ -15,7 +15,7 @@ Supports user authentication, category-wise product listing, shopping cart, wish
 - Product detail pages with full information  
 - Shopping cart: add items, edit quantities, remove items  
 - Wishlist: add items, move to cart or remove  
-- Clean, responsive UI built with pure CSS (no Bootstrap)  
+- Clean, responsive UI built with CSS
 - Image uploads for products (with media handling)  
 - Admin interface for managing categories and products  
 - Simple quantity controls (increase / decrease)  
